@@ -113,7 +113,7 @@
            <schema_name/>
            </partitioning>
     <connection>hsos</connection>
-    <sql>SELECT &#xa;	bd2.ort_dimension.id AS ort_id, &#xa;	bd2.typ_dimension.id AS typ_id, &#xa;	bd2.zeit_dimension.id AS zeit_id,&#xa;	fgdb_verkehrsdaten.messwerte.zaehler AS wert&#xa;FROM &#xa;	bd2.ort_dimension,&#xa;	bd2.typ_dimension,&#xa;	bd2.zeit_dimension,&#xa;	fgdb_verkehrsdaten.messwerte</sql>
+    <sql>SELECT &#xa;	bd2.ort_dimension.id AS ort_id, &#xa;	bd2.typ_dimension.id AS typ_id, &#xa;	bd2.zeit_dimension.id AS zeit_id,&#xa;	fgdb_verkehrsdaten.messwerte.zaehler AS wert&#xa;FROM &#xa;	bd2.ort_dimension,&#xa;	bd2.typ_dimension,&#xa;	bd2.zeit_dimension,&#xa;	fgdb_verkehrsdaten.messwerte&#xa;&#xa;FETCH NEXT 1000 ROWS ONLY</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
