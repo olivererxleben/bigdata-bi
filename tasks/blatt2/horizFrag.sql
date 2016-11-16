@@ -1,11 +1,9 @@
-# Aufgabenblatt 2
+use datashot;
 
-## Aufgabe 1
+#CREATE TABLE if not exists bdbi_EMP_p1 like bdbi_EMP;
+#truncate table bdbi_EMP_p1;
 
-### a)
-
-Siehe initTables + horizFrag.sql
-
-### b) 
-
-Korrekheit der Fragmentierung 
+# p1
+SELECT * FROM bdbi_EMP where TITLE < "Programmer";
+# p2
+select * from bdbi_EMP where TITLE > "Programmer";
