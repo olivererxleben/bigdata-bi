@@ -8,7 +8,7 @@
 
 import Foundation
 import MongoKitten
-
+import Rainbow
 
 class Questionaire {
     
@@ -25,7 +25,7 @@ class Questionaire {
         }
         
         catch {
-            print("an error occured")
+            print("an error occured while connectiong db".red)
         }
     }
     
@@ -53,7 +53,7 @@ class Questionaire {
             return chosenCategories
         }
         catch {
-            print("error querying categories")
+            print("error querying categories".red)
         
         }
         
@@ -90,7 +90,7 @@ class Questionaire {
             return difficulties
         }
         catch {
-            print("error querying values")
+            print("error querying values".red)
         }
         
         return [:]
@@ -108,7 +108,7 @@ class Questionaire {
             
         }
         catch {
-            print("error querying for question")
+            print("error querying for question".red)
         }
         
         return Document()
@@ -123,7 +123,7 @@ class Questionaire {
             print("inserted \(id.stringValue)")
         }
         catch {
-            print("error inserting doc")
+            print("error inserting doc".red)
         }
     }
     
@@ -131,12 +131,13 @@ class Questionaire {
         let lb = db["leaderboard"]
         
         do {
-            let results = Array(try lb.find())
+            let results = Array(try lb.find(projecting: ["value": true, "name": true]))
+            
             // sort result
             print(results)
         }
         catch {
-            print("errer reading leaderbord")
+            print("errer reading leaderbord".red)
         }
     }
     

@@ -1,18 +1,8 @@
 import Foundation
 
-print("Welcome to Jeopardy on the fency commandline!")
+print("Welcome to Jeopardy on the fancy commandline!")
 
 let io = ConsoleIO()
-//
-//let argCount = CommandLine.argc
-//
-//let argument = CommandLine.arguments[1]
-//
-//let (option, value) = io.getOption(option: argument.substring(from: argument.characters.index(argument.startIndex, offsetBy: 1)))
-//
-//print("Arg Count: \(argCount) -- Option: \(option) -- value: \(value)")
-
-// application start
 
 var shouldQuit = false
 
@@ -21,15 +11,15 @@ func gameLoop() {
     
     // ask for players
     
-    print("Name of Player 1:")
+    print("Name of Player 1:".onWhite)
     let p1name = io.getInput()
     var p1 = Player(name: p1name, points: 0)
     
-    print("Name of Player 2:")
+    print("Name of Player 2:".onWhite)
     let p2name = io.getInput()
     var p2 = Player(name: p2name, points: 0)
     
-    print("Name of Player 3:")
+    print("Name of Player 3:".onWhite)
     let p3name = io.getInput()
     var p3 = Player(name: p3name, points: 0)
     
@@ -71,7 +61,7 @@ func gameLoop() {
             
             c += 1
             
-            print("Round \(round), Turn Player \(player.name)")
+            print("Round \(round), Turn Player \(player.name)".onWhite)
             
             // 1. print Categories
             let cats = questor.categories()
@@ -154,8 +144,15 @@ func normalizeValueEntry(valueEntry: String) -> Int {
 // main loop
 while !shouldQuit {
     
+    print("\n\n\n (= JEOPARDY =) \n\n\n".red.onWhite)
+    
     // main menu
-    print("Choose your Options. Type 'help' for a list \n>")
+    print("Choose your Options. Type one of the following:\n\n")
+    print("l, leeaderboard".bold + " - to print the leaderboard\n")
+    
+    print("n, new".bold + " - start a new game\n")
+    
+    print("q, quit".bold + " - to exit this awesome jeopardy\n")
     
     switch (io.getInput()) {
         
@@ -164,12 +161,12 @@ while !shouldQuit {
         Questionaire().printLeaderboard()
         break
     
-    case "new", "newgame", "n":
+    case "new", "n":
         print("starting new game");
         gameLoop()
         break
     
-    case "quite", "q":
+    case "quit", "q":
         print("goodbye")
         shouldQuit = true
         break
