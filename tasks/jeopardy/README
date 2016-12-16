@@ -1,0 +1,7 @@
+Mongodb: data/db
+start via: projectRoot>> mongod -dbpath data/db
+
+data import:
+mongoimport --db jeopardy --jsonArray --collection questions --drop  JEOPARDY_QUESTIONS1.json
+
+Project written in Swift 3.0.1
